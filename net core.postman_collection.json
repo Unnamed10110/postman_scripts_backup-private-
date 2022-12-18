@@ -1,0 +1,2369 @@
+{
+	"info": {
+		"_postman_id": "62c88072-c060-43ef-81fb-46e27c08101c",
+		"name": "net core",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "WebApiAutores - REST",
+			"item": [
+				{
+					"name": "Autores",
+					"item": [
+						{
+							"name": "V1",
+							"item": [
+								{
+									"name": "GUI - tipos servicios",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{domain}}/api/v1/autores/GUID",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"autores",
+												"GUID"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get configuration",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/GetConfiguration",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"GetConfiguration"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Autores",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"strictSSL": false,
+										"disabledSystemHeaders": {
+											"accept": true
+										}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token_gral}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "  application/xml, application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{domain}}/api/V1/autores",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Autor",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"console.log(pm.environment.get(\"WebApiAutores_login\"));\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.collectionVariables.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});\r",
+													"\r",
+													"function uuidv4() {\r",
+													"  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>\r",
+													"    (c ^ Math.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\r",
+													"  );\r",
+													"}\r",
+													"pm.collectionVariables.set(\"GUID\", uuidv4());\r",
+													"\r",
+													"console.log(pm.collectionVariables.get(\"GUID\"));"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token_gral}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "nombreCompleto",
+													"value": "User 1",
+													"type": "default"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get IActionResult",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/IActionResult/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"IActionResult",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Autor x Nombre",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/Autor",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"Autor"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Autor x Id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Put Autor x Id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman Put\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Autor x Id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/3",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Autores NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/GetNoEF",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"GetNoEF"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Post Autor NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman No EF\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/PostNoEF",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"PostNoEF"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Put Autor NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman No EF\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/PutNoEF",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"PutNoEF"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Autor x Id NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": "true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/DeleteNoEF/7",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"DeleteNoEF",
+												"7"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "V2",
+							"item": [
+								{
+									"name": "GUI - tipos servicios",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/v1/autores/GUID",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"autores",
+												"GUID"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get configuration",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/V1/autores/GetConfiguration",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"autores",
+												"GetConfiguration"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Autores",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"strictSSL": false
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token_gral}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{domain}}/api/autores",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"autores"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Autor",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://localhost:7089/api/autores",
+											"protocol": "https",
+											"host": [
+												"localhost"
+											],
+											"port": "7089",
+											"path": [
+												"api",
+												"autores"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get IActionResult",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/autores/IActionResult/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"autores",
+												"IActionResult",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Autor x Nombre",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/autores/Autor",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"autores",
+												"Autor"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Autor x Id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/autores/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"autores",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Put Autor x Id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman Put\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/autores/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"autores",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Autor x Id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/autores/3",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"autores",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Autores NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/GetNoEF",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"GetNoEF"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Post Autor NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman No EF\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/PostNoEF",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"PostNoEF"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Put Autor NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman No EF\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/PutNoEF",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"PutNoEF"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Autor x Id NoEF",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.environment.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"nombreCompleto\": \"Autor Postman\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/DeleteNoEF/7",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"DeleteNoEF",
+												"7"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "AutoresGraphQL",
+					"item": [
+						{
+							"name": "Get_GraphQL",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "pagina",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "cantidad",
+										"value": "2",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  autores {\r\n    id\r\n    nombreCompleto    \r\n  }\r\n}\r\n",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7089/graphql/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7089",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cuentas",
+					"item": [
+						{
+							"name": "V1",
+							"item": [
+								{
+									"name": "Registrar",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user1@gmail.com\",\r\n  \"password\": \"Aa.123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/cuentas/registrar",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"cuentas",
+												"registrar"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": " application/xml",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user0@gmail.com\",\r\n  \"password\": \"Aa.123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/cuentas/login",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"cuentas",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "V2",
+							"item": [
+								{
+									"name": "Login",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user0@gmail.com\",\r\n  \"password\": \"Aa.123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V2/cuentas/login",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V2",
+												"cuentas",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Registrar",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"user1@gmail.com\",\r\n  \"password\": \"Aa.123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/cuentas/registrar",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"cuentas",
+												"registrar"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "noauth"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Libros",
+					"item": [
+						{
+							"name": "V1",
+							"item": [
+								{
+									"name": "Comentarios x Libro",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/1/comentarios",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"1",
+												"comentarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Comentario",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"let email_var=\"user0@gmail.com\";\r",
+													"let password_var=\"Aa.123456\";\r",
+													"console.log(pm.environment.get(\"WebApiAutores_login\"));\r",
+													"\r",
+													"let login_request={\r",
+													"    url: pm.environment.get(\"WebApiAutores_login\"),\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"accept\": \"text/plain\" ,\r",
+													"        \"Content-Type\": \"application/json\"\r",
+													"    },\r",
+													"    body:{\r",
+													"        mode: 'raw',\r",
+													"        raw: JSON.stringify({ \r",
+													"            \"email\": email_var,\r",
+													"            \"password\": password_var\r",
+													"        })\r",
+													"    }\r",
+													"    \r",
+													"}\r",
+													"\r",
+													"pm.sendRequest(login_request, function (err, res) {\r",
+													"    pm.collectionVariables.set(\"token_gral\", res.json().token);\r",
+													"    console.log(\"--------------------------\"+res.json().token+\"--------------------------\")\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.collectionVariables.set(\"GUID\", Math.round(Math.random()*100));\r",
+													"\r",
+													"//console.log(pm.collectionVariables.get(\"GUID\"));"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token_gral}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contenidoLibro\": \"comment {{GUID}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/2/comentarios",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"2",
+												"comentarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Comentario x IdLibro x IdComentario",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/1/comentarios/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"1",
+												"comentarios",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Comentario x IdLibro x IdComentario Copy",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contenidoLibro\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/1/comentarios/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"1",
+												"comentarios",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "V2",
+							"item": [
+								{
+									"name": "Comentarios x Libro",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/1/comentarios",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"1",
+												"comentarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Comentario",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contenidoLibro\": \"comentario libro 2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/2/comentarios",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"2",
+												"comentarios"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Comentario x IdLibro x IdComentario",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/1/comentarios/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"1",
+												"comentarios",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Comentario x IdLibro x IdComentario Copy",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "incluirHATEOAS",
+												"value": " true",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contenidoLibro\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{domain}}/api/V1/libros/1/comentarios/1",
+											"host": [
+												"{{domain}}"
+											],
+											"path": [
+												"api",
+												"V1",
+												"libros",
+												"1",
+												"comentarios",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Chat_SignalR",
+			"item": [
+				{
+					"name": "add_comment_chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"pepe\",\r\n    \"Comment\":\"---------------\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7034/postcomment",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7034",
+							"path": [
+								"postcomment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token_gral",
+			"value": ""
+		},
+		{
+			"key": "GUID",
+			"value": ""
+		}
+	]
+}
